@@ -38,7 +38,6 @@ class _DiceePageState extends State<DiceePage> {
 
   @override
   Widget build(BuildContext context) {
-    var rightPressed = 'You Pressed Right Dicee';
     return Center(
       child: Row(
         children: [
