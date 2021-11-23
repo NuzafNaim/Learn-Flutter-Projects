@@ -1,5 +1,4 @@
-import 'dart:ffi';
-
+import 'dart:math';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,11 +18,26 @@ void main() {
   );
 }
 
-class DiceePage extends StatelessWidget {
+class DiceePage extends StatefulWidget {
+  const DiceePage({Key? key}) : super(key: key);
+
+  @override
+  _DiceePageState createState() => _DiceePageState();
+}
+
+class _DiceePageState extends State<DiceePage> {
+  int leftDiceNumber = 1;
+  int rightDiceNumber = 1;
+
+  void changeDiceeFace() {
+    setState(() {
+      leftDiceNumber = Random().nextInt(6) + 1;
+      rightDiceNumber = Random().nextInt(6) + 1;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    var leftDiceNumber = 3;
-    var leftPressed = 'You Pressed Left Dicee';
     var rightPressed = 'You Pressed Right Dicee';
     return Center(
       child: Row(
@@ -33,7 +47,7 @@ class DiceePage extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: TextButton(
                   onPressed: () {
-                    print(leftPressed);
+                    changeDiceeFace();
                   },
                   child: Image.asset('assets/images/dice$leftDiceNumber.png')),
             ),
@@ -43,9 +57,9 @@ class DiceePage extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: TextButton(
                   onPressed: () {
-                    print(rightPressed);
+                    changeDiceeFace();
                   },
-                  child: Image.asset('assets/images/dice1.png')),
+                  child: Image.asset('assets/images/dice$rightDiceNumber.png')),
             ),
           ),
         ],
