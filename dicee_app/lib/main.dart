@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,10 +20,11 @@ void main() {
 }
 
 class DiceePage extends StatelessWidget {
-  const DiceePage({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
+    var leftDiceNumber = 3;
+    var leftPressed = 'You Pressed Left Dicee';
+    var rightPressed = 'You Pressed Right Dicee';
     return Center(
       child: Row(
         children: [
@@ -30,9 +33,9 @@ class DiceePage extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: TextButton(
                   onPressed: () {
-                    print('Its Pressed');
+                    print(leftPressed);
                   },
-                  child: Image.asset('assets/images/dice1.png')),
+                  child: Image.asset('assets/images/dice$leftDiceNumber.png')),
             ),
           ),
           Expanded(
@@ -40,7 +43,7 @@ class DiceePage extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: TextButton(
                   onPressed: () {
-                    print('Pressed');
+                    print(rightPressed);
                   },
                   child: Image.asset('assets/images/dice1.png')),
             ),
