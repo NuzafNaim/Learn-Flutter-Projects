@@ -39,7 +39,7 @@ class _DiceePageState extends State<DiceePage> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Row(
+      child: colum(
         children: [
           Expanded(
             child: Padding(
