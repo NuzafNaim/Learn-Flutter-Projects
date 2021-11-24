@@ -46,6 +46,7 @@ class _BallPageState extends State<BallPage> {
             child: ListTile(
               title: Text(
                 'Ask Your Quistions And Press That Button Bellow',
+                textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 20,
                 ),
