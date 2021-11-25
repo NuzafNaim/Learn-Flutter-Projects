@@ -1,6 +1,5 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:audioplayers/audioplayers.dart';
 
 void main() {
   runApp(
@@ -30,11 +29,6 @@ class _DiceePageState extends State<DiceePage> {
   int leftDiceNumber = 1;
   int rightDiceNumber = 1;
 
-  void AudioFile(int audioLove) {
-    final player = AudioCache();
-    player.play('note$audioLove.mp3');
-  }
-
   void changeDiceeFace() {
     setState(() {
       leftDiceNumber = Random().nextInt(6) + 1;
@@ -45,14 +39,13 @@ class _DiceePageState extends State<DiceePage> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Row(
+      child: colum(
         children: [
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextButton(
                   onPressed: () {
-                    AudioFile(4);
                     changeDiceeFace();
                   },
                   child: Image.asset('assets/images/dice$leftDiceNumber.png')),
@@ -63,7 +56,6 @@ class _DiceePageState extends State<DiceePage> {
               padding: const EdgeInsets.all(8.0),
               child: TextButton(
                   onPressed: () {
-                    AudioFile(5);
                     changeDiceeFace();
                   },
                   child: Image.asset('assets/images/dice$rightDiceNumber.png')),
